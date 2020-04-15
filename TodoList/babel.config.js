@@ -1,4 +1,5 @@
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
-  plugins: [['babel-plugin-root-import', {rootPathPrefix:'~', rootPathSuffix: 'src',},],],
+  // eslint-disable-next-line prettier/prettier
+  plugins: [['babel-plugin-root-import', {rootPathPrefix:'~', rootPathSuffix: 'src'}]],
 };
