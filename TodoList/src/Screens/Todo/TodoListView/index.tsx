@@ -13,9 +13,8 @@ interface Props {}
 const TodoListView = ({  }: Props) => {
     return (
         <Container>
-            <Header>
-                <TodoList />;
-            </Header>
+            <Header />
+            <TodoList />
         </Container>
     );
 };

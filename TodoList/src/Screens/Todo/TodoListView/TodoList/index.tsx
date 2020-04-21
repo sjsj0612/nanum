@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Styled from 'styled-components/native';
 import { FlatList } from 'react-native';
+import Styled from 'styled-components/native';
 import { TodoListContext } from  '~/Context/TodoListContext';
 
 import EmptyItem from './EmptyItem';
@@ -19,10 +19,15 @@ const TodoList = ({ }: Props) => {
     return (
         <Container 
             data={todoList} 
-            keyExtractor={(item, index) => {return `todo-${index};`}}
+            keyExtractor={(item, index) => {return `todo-${index}`;}}
             ListEmptyComponent={<EmptyItem />}
-            renderItem={({ item, index }) => (<TodoItem text={item as string} onDelete={() => removeTodoList(index)} />)}
-            contentContainerStyle={TodoList.length === 0 && { flex: 1 }}
+            renderItem={({ item, index }) => (
+                <TodoItem 
+                    text={item as string} 
+                    onDelete={() => removeTodoList(index)} 
+                />
+            )}
+            contentContainerStyle={todoList.length === 0 && { flex: 1 }}
         />
     );
 };

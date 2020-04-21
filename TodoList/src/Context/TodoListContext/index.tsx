@@ -10,6 +10,7 @@ const TodoListContext = createContext<ITodoListContext>({
     todoList: [], //문자열
     addTodoList: (todo: string): void => {}, // 함수
     removeTodoList: (index: number): void => {}, // 함수
+    removeAllTodoList: (): void => {},
 });
 
 // Context의 프로바이더 컴포넌트를 만들고 공통 부모 컴포넌트의 부모 컴포넌트로서 사용한다.
@@ -30,6 +31,12 @@ const TodoListContextProvider = ({ children }: Props) => {
         AsyncStorage.setItem('todoList', JSON.stringify(list)); // 물리적으로 저장된 값도 업데이트
     };
     
+    const removeAllTodoList = (): void => {
+        const list = [null];
+        setTodoList([]);
+        AsyncStorage.setItem('todoList', JSON.stringify(list));
+    };
+
     // 'todolist'를 가지고와서 null이 아니면 JSON.parse 함수를 사용하여 문자열 배열로 변경하는 함수
     const initData = async() => {
         try {
@@ -54,6 +61,7 @@ const TodoListContextProvider = ({ children }: Props) => {
             todoList,
             addTodoList,
             removeTodoList,
+            removeAllTodoList,
         }}>
             {children}
         </TodoListContext.Provider>

@@ -3,7 +3,7 @@ import Styled from 'styled-components/native';
 
 import TodoListView from './TodoListView';
 import AddTodo from './AddTodo';
-import { ToolbarAndroid } from 'react-native';
+import RemoveAllTodo from './RemoveAllTodo';
 
 const Container = Styled.View`
   flex: 1;
@@ -16,6 +16,7 @@ const Todo = ({ }: Props) => {
     <Container>
       <TodoListView />
       <AddTodo />
+      <RemoveAllTodo />
     </Container>    
   );
 };

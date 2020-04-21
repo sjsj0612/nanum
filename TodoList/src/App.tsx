@@ -2,7 +2,7 @@ import React from 'react';
 import Styled from 'styled-components/native';
 import { TodoListContextProvider } from '~/Context/TodoListContext';
 import Todo from './Screens/Todo';
-//import { TodoListContextProvider } from './Context';
+
 
 const Container = Styled.View`
   flex: 1;
